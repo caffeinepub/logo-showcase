@@ -16,8 +16,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Fraunces", "Georgia", "serif"],
-        body: ["Cabinet Grotesk", "system-ui", "sans-serif"],
+        display: ["Fraunces", "Instrument Serif", "Georgia", "serif"],
+        serif: ["Instrument Serif", "Georgia", "serif"],
+        body: ["General Sans", "system-ui", "sans-serif"],
       },
       colors: {
         border: "oklch(var(--border))",
@@ -70,7 +71,8 @@ export default {
           border: "oklch(var(--sidebar-border))",
           ring: "oklch(var(--sidebar-ring))",
         },
-        gold: "oklch(var(--gold))",
+        clay: "oklch(var(--clay))",
+        terracotta: "oklch(var(--terracotta))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -79,7 +81,9 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        gold: "0 0 30px oklch(0.78 0.14 82 / 0.15), 0 0 60px oklch(0.78 0.14 82 / 0.08)",
+        clay: "0 4px 20px oklch(0.52 0.12 45 / 0.18)",
+        "clay-lg": "0 8px 40px oklch(0.52 0.12 45 / 0.22)",
+        warm: "0 2px 12px oklch(0.52 0.12 45 / 0.10)",
       },
       keyframes: {
         "accordion-down": {
@@ -91,7 +95,7 @@ export default {
           to: { height: "0" },
         },
         "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(20px)" },
+          from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
@@ -99,16 +103,8 @@ export default {
           to: { opacity: "1" },
         },
         "scale-in": {
-          from: { opacity: "0", transform: "scale(0.92)" },
+          from: { opacity: "0", transform: "scale(0.94)" },
           to: { opacity: "1", transform: "scale(1)" },
-        },
-        "shimmer": {
-          "0%": { backgroundPosition: "-200% center" },
-          "100%": { backgroundPosition: "200% center" },
-        },
-        "pulse-gold": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.6" },
         },
       },
       animation: {
@@ -117,8 +113,6 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         "fade-in": "fade-in 1s ease-out forwards",
         "scale-in": "scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "shimmer": "shimmer 3s linear infinite",
-        "pulse-gold": "pulse-gold 3s ease-in-out infinite",
       },
     },
   },
