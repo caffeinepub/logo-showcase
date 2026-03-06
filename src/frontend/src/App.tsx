@@ -9,7 +9,9 @@ import {
   useRouterState,
 } from "@tanstack/react-router";
 import {
+  AlertTriangle,
   CheckCircle2,
+  ChevronDown,
   Clock,
   Flame,
   Layers,
@@ -23,6 +25,7 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import type React from "react";
 import { useEffect, useState } from "react";
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -33,7 +36,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 function ClayOrnament({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div
+      className={`flex items-center justify-center gap-3 w-full ${className}`}
+    >
       <span className="ornament" />
       <svg
         width="8"
@@ -101,6 +106,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Services", to: "/services", ocid: "nav.services.link" },
   { label: "Programs", to: "/programs", ocid: "nav.programs.link" },
   { label: "About Us", to: "/about", ocid: "nav.about.link" },
+  { label: "Policies", to: "/policies", ocid: "nav.policies.link" },
   { label: "Contact", to: "/contact", ocid: "nav.contact.link" },
 ];
 
@@ -144,9 +150,9 @@ function Navigation() {
           aria-label="Go to homepage"
         >
           <img
-            src="/assets/uploads/looogo-1.jpeg"
+            src="/assets/generated/claze-logo-transparent.png"
             alt="Claze Creative Space Logo"
-            className="h-10 w-10 object-contain rounded-md"
+            className="h-10 w-10 object-contain"
           />
           <span className="font-display text-base sm:text-lg font-semibold text-foreground tracking-wide hidden sm:block">
             Claze Creative Space
@@ -249,9 +255,9 @@ function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/assets/uploads/looogo-1.jpeg"
+              src="/assets/generated/claze-logo-transparent.png"
               alt="Claze Logo"
-              className="h-10 w-10 object-contain rounded-md"
+              className="h-10 w-10 object-contain"
             />
             <div>
               <p className="font-display text-base font-semibold text-foreground">
@@ -376,7 +382,7 @@ function HomePage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/generated/pottery-hero.dim_1200x700.jpg"
+            src="/assets/generated/pottery-hero.dim_1400x700.jpg"
             alt="Pottery workspace background"
             className="w-full h-full object-cover"
             loading="eager"
@@ -394,9 +400,9 @@ function HomePage() {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/assets/uploads/looogo-1.jpeg"
+              src="/assets/generated/claze-logo-transparent.png"
               alt="Claze Creative Space"
-              className="h-28 w-28 sm:h-36 sm:w-36 object-contain rounded-2xl shadow-clay mx-auto"
+              className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto"
             />
           </motion.div>
 
@@ -439,6 +445,111 @@ function HomePage() {
               View Programs
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Navigation Tabs — visible on front page */}
+      <section
+        data-ocid="home.nav_tabs.section"
+        className="py-14 px-4 bg-background"
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase clay-text mb-2">
+              Explore
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl text-foreground">
+              Where Would You Like to Go?
+            </h2>
+            <ClayOrnament className="mx-auto mt-4" />
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+            {[
+              {
+                label: "Services",
+                to: "/services",
+                ocid: "home.services.tab",
+                desc: "Drop-in open space sessions — hand building, wheel throwing & glazing.",
+                icon: "⚱️",
+              },
+              {
+                label: "Programs",
+                to: "/programs",
+                ocid: "home.programs.tab",
+                desc: "Structured courses from beginner to advanced, kiln & glaze specializations.",
+                icon: "🏺",
+              },
+              {
+                label: "About Us",
+                to: "/about",
+                ocid: "home.about.tab",
+                desc: "Bengaluru's collective pottery space in the heart of HSR Layout.",
+                icon: "🌿",
+              },
+              {
+                label: "Policies",
+                to: "/policies",
+                ocid: "home.policies.tab",
+                desc: "Session guidelines, refund policies, storage, kiln & damage policies.",
+                icon: "📋",
+              },
+              {
+                label: "Contact",
+                to: "/contact",
+                ocid: "home.contact.tab",
+                desc: "Visit us at 221, 9th Main Road, HSR Layout · Open 10AM–8:30PM.",
+                icon: "📍",
+              },
+            ].map((tab, i) => (
+              <motion.div
+                key={tab.to}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.1 }}
+              >
+                <Link
+                  to={tab.to}
+                  data-ocid={tab.ocid}
+                  className="group flex flex-col gap-3 bg-card rounded-2xl border border-border shadow-warm hover:shadow-clay-lg p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 h-full"
+                >
+                  <div className="flex items-start justify-between">
+                    <span
+                      className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                      style={{ background: "oklch(var(--clay) / 0.10)" }}
+                    >
+                      {tab.icon}
+                    </span>
+                    <span
+                      className="text-xl font-bold transition-transform duration-300 group-hover:translate-x-1"
+                      style={{ color: "oklch(var(--clay))" }}
+                    >
+                      →
+                    </span>
+                  </div>
+                  <h3
+                    className="font-display text-xl sm:text-2xl text-foreground leading-tight"
+                    style={{
+                      fontFamily:
+                        '"Cormorant Garamond", "Fraunces", Georgia, serif',
+                    }}
+                  >
+                    {tab.label}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">
+                    {tab.desc}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -538,37 +649,73 @@ function ServicesPage() {
           subtitle="Drop in and practice your craft. Bring your own clay and tools, work at your own pace, and take your finished piece home. No commitment needed — just creativity."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="flex flex-col gap-8 mb-10">
           {/* Hand Building */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="card-hover bg-card rounded-2xl p-7 border border-border shadow-warm flex flex-col gap-4"
+            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
           >
-            <div className="flex items-start justify-between">
-              <h2 className="font-display text-xl text-foreground">
-                Hand Building
-              </h2>
-              <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                  Open Space
+                </p>
+                <h2 className="font-display text-2xl text-foreground">
+                  Handbuilding
+                </h2>
+              </div>
+              <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full self-start">
                 ₹260
               </span>
             </div>
+            <p className="text-sm text-foreground/65 leading-relaxed">
+              Work freely with clay using hand-building techniques — pinching,
+              coiling, and slab building. A great way to explore your creativity
+              at your own pace in our open space.
+            </p>
             <div className="section-divider" />
-            <ul className="flex flex-col gap-2 text-sm text-foreground/70">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />1
-                Session · 3 Hours
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                Bring your own clay &amp; tools
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                Take your product home
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Session Details
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    1 Session · 3 Hours
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Additional hour: ₹100
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Take your product home
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Guidelines
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Bring your own clay and tools
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Clean your workspace after use
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Storage not included (₹50/day if needed)
+                  </li>
+                </ul>
+              </div>
+            </div>
           </motion.div>
 
           {/* Wheel Throwing */}
@@ -576,38 +723,71 @@ function ServicesPage() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="card-hover bg-card rounded-2xl p-7 border border-border shadow-warm flex flex-col gap-4 relative overflow-hidden"
+            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5 relative overflow-hidden"
           >
             <div
               className="absolute top-0 right-0 left-0 h-1 rounded-t-2xl"
               style={{ background: "oklch(var(--clay))" }}
             />
-            <div className="flex items-start justify-between">
-              <h2 className="font-display text-xl text-foreground">
-                Wheel Throwing
-              </h2>
-              <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                  Open Space · Most Popular
+                </p>
+                <h2 className="font-display text-2xl text-foreground">
+                  Wheel Throwing
+                </h2>
+              </div>
+              <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full self-start">
                 ₹280
               </span>
             </div>
-            <div className="section-divider" />
-            <ul className="flex flex-col gap-2 text-sm text-foreground/70">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />1
-                Session · 3 Hours
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                Bring your own clay &amp; tools
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                Take your product home
-              </li>
-            </ul>
-            <p className="text-xs text-clay font-semibold mt-auto">
-              ✦ Most Popular
+            <p className="text-sm text-foreground/65 leading-relaxed">
+              Experience the meditative art of wheel throwing. Center your clay,
+              shape it on the spinning wheel, and walk away with a piece you
+              made with your own hands.
             </p>
+            <div className="section-divider" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Session Details
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    1 Session · 3 Hours
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Additional hour: ₹100
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Take your product home
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Guidelines
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Bring your own clay and tools
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Clean the wheel and workspace after use
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Inform the team in advance if extra time is needed
+                  </li>
+                </ul>
+              </div>
+            </div>
           </motion.div>
 
           {/* Glazing */}
@@ -615,36 +795,142 @@ function ServicesPage() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="card-hover bg-card rounded-2xl p-7 border border-border shadow-warm flex flex-col gap-4"
+            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
           >
-            <h2 className="font-display text-xl text-foreground">Glazing</h2>
-            <div className="section-divider" />
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-foreground/70">1 Session</span>
-                <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
-                  ₹280
-                </span>
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                  Open Space
+                </p>
+                <h2 className="font-display text-2xl text-foreground">
+                  Glaze Application
+                </h2>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-foreground/70">
-                  2 Sessions / day
-                </span>
-                <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
-                  ₹560
-                </span>
+              <div className="flex flex-col gap-2 self-start">
+                <div className="flex items-center gap-2">
+                  <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
+                    ₹280
+                  </span>
+                  <span className="text-xs text-foreground/55">1 session</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="price-badge text-sm font-bold px-3 py-1 rounded-full">
+                    ₹560
+                  </span>
+                  <span className="text-xs text-foreground/55">
+                    2 sessions / day
+                  </span>
+                </div>
               </div>
             </div>
-            <ul className="flex flex-col gap-2 text-sm text-foreground/70 mt-2">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                No tools needed
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                Bring your own clay
-              </li>
-            </ul>
+            <p className="text-sm text-foreground/65 leading-relaxed">
+              Apply glazes to your bisque-fired pieces and bring colour and
+              finish to your work. Ideal for those who have completed their
+              pottery and are ready for the final step before kiln firing.
+            </p>
+            <div className="section-divider" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Session Details
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    1 session: ₹280
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2 sessions per day: ₹560
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Guidelines
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Bring your own bisque-fired pottery pieces
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Space glazes will not be provided
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Bring your own glazing tools
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Kiln Firing Service */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                  Service
+                </p>
+                <h2 className="font-display text-2xl text-foreground">
+                  Kiln Firing Service
+                </h2>
+              </div>
+            </div>
+            <p className="text-sm text-foreground/65 leading-relaxed">
+              Get your pottery fired by our team. We offer bisque firing and
+              glaze firing services for pieces you've made — whether here or
+              elsewhere. Drop off your work and we'll take care of the rest.
+            </p>
+            <div className="section-divider" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Services Available
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Bisque firing
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Glaze firing
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
+                  Guidelines
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Drop off between 10:30 AM – 5:30 PM
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Pieces must be completely dry before firing
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Not responsible for damage from air bubbles, glaze faults,
+                    or improper clay prep
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Additional charges may apply if a piece damages the kiln
+                  </li>
+                </ul>
+              </div>
+            </div>
           </motion.div>
         </div>
 
@@ -652,7 +938,7 @@ function ServicesPage() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
           className="rounded-2xl overflow-hidden shadow-clay-lg"
           style={{ maxHeight: "380px" }}
         >
@@ -690,7 +976,7 @@ function ProgramsPage() {
             transition={{ duration: 0.5 }}
             className="bg-card rounded-2xl border border-border shadow-warm p-8"
           >
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
               <div>
                 <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
                   Experience
@@ -718,46 +1004,105 @@ function ProgramsPage() {
                 </div>
               </div>
             </div>
+
+            {/* Description */}
+            <p className="text-sm text-foreground/65 leading-relaxed mb-5">
+              A fun, guided pottery session perfect for beginners, groups, and
+              anyone curious about clay. You'll spend time handbuilding your own
+              piece and get a hands-on taste of the wheel — no experience
+              needed. Your finished work will be fired and ready for you to take
+              home.
+            </p>
+
             <div className="section-divider mb-5" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              {/* Session Details */}
               <div className="flex flex-col gap-3">
-                <p className="text-sm font-semibold text-foreground/80">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
                   Session Details
                 </p>
                 <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
                     1 session · 3 hours total
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                    2 hrs hand building
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2.5 hrs handbuilding
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
                     30 mins wheel throwing experience
                   </li>
                 </ul>
               </div>
+
+              {/* What's Included */}
               <div className="flex flex-col gap-3">
-                <p className="text-sm font-semibold text-foreground/80">
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text">
                   What's Included
                 </p>
                 <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
                     Clay, tools &amp; apron provided
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                    Take your finished product home
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Instructor guidance throughout
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Finished piece fired &amp; ready for collection
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
                     Optional glazing upgrade available
                   </li>
                 </ul>
               </div>
+            </div>
+
+            {/* Guidelines */}
+            <div className="mb-5">
+              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+                Guidelines
+              </p>
+              <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  No prior pottery experience required.
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  All materials and tools are provided — just come ready to
+                  create.
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  Finished pottery pieces will be fired and prepared for
+                  collection at a later date.
+                </li>
+              </ul>
+            </div>
+
+            {/* Refund Policy */}
+            <div
+              className="rounded-xl p-4 flex flex-col gap-2"
+              style={{ background: "oklch(var(--clay) / 0.07)" }}
+            >
+              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-1">
+                Refund Policy
+              </p>
+              <p className="flex items-start gap-2 text-sm text-foreground/65">
+                <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Cancellation 2 days before the session: 75% refund.
+              </p>
+              <p className="flex items-start gap-2 text-sm text-foreground/65">
+                <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Cancellation within 2 days of the session: No refund.
+              </p>
             </div>
           </motion.div>
 
@@ -967,20 +1312,38 @@ function AboutPage() {
   return (
     <section data-ocid="about.section" className="py-20 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Images — stacked column */}
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="rounded-2xl overflow-hidden shadow-clay-lg"
+            className="flex flex-col gap-4"
           >
-            <img
-              src="/assets/generated/pottery-handbuilding.dim_600x400.jpg"
-              alt="Handbuilding pottery at Claze Creative Space"
-              className="w-full h-80 lg:h-full object-cover"
-              loading="lazy"
-            />
+            <div className="rounded-2xl overflow-hidden shadow-warm">
+              <img
+                src="/assets/generated/pottery-community.dim_800x500.jpg"
+                alt="Pottery space community"
+                className="w-full h-56 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-warm">
+              <img
+                src="/assets/generated/hands-on-wheel.dim_800x500.jpg"
+                alt="Hands on the wheel"
+                className="w-full h-56 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-warm">
+              <img
+                src="/assets/generated/pottery-display.dim_800x500.jpg"
+                alt="Handmade ceramic collection"
+                className="w-full h-56 object-cover"
+                loading="lazy"
+              />
+            </div>
           </motion.div>
 
           {/* Text */}
@@ -1189,6 +1552,632 @@ function ContactPage() {
 }
 
 // ─────────────────────────────────────────────
+// Page: Policies
+// ─────────────────────────────────────────────
+
+interface PolicySection {
+  id: string;
+  title: string;
+  badge?: string;
+  content: React.ReactNode;
+}
+
+function PolicyAccordionItem({
+  section,
+  index,
+}: {
+  section: PolicySection;
+  index: number;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
+      className="bg-card rounded-2xl border border-border shadow-warm overflow-hidden"
+      data-ocid={`policies.item.${index + 1}`}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-muted/40 transition-colors"
+        data-ocid={`policies.toggle.${index + 1}`}
+      >
+        <div className="flex items-center gap-3 min-w-0">
+          {section.badge && (
+            <span
+              className="hidden sm:inline text-xs font-semibold tracking-widest uppercase px-2.5 py-0.5 rounded-full flex-shrink-0"
+              style={{
+                background: "oklch(var(--clay) / 0.12)",
+                color: "oklch(var(--clay))",
+              }}
+            >
+              {section.badge}
+            </span>
+          )}
+          <h2 className="font-display text-lg sm:text-xl text-foreground leading-snug">
+            {section.title}
+          </h2>
+        </div>
+        <ChevronDown
+          className={`h-5 w-5 clay-text flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 pt-1">
+              <div className="section-divider mb-5" />
+              <div className="text-sm text-foreground/70 leading-relaxed">
+                {section.content}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+function PoliciesPage() {
+  const policies: PolicySection[] = [
+    {
+      id: "open-studio",
+      title: "Open Studio Policy",
+      badge: "Drop-in",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Session Details
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Duration: 3 hours per session
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Wheel Throwing: ₹280
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Handbuilding: ₹260
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Additional Hour: ₹100 per hour
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Guidelines
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Participants must bring their own clay and tools.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Wheels and workspaces must be cleaned after use.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Storage is not included. If required, ₹50 per day applies.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                If additional time is needed, inform the team in advance.
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "community-clay",
+      title: "Community Clay Experience",
+      badge: "Experience",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Session Details
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Total Duration: 3 hours (2.5 hrs handbuilding + 30 mins wheel
+                throwing)
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                ₹2,000 – Without glazing
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                ₹2,600 – With glazing
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Guidelines
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                No prior pottery experience required.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Instructor guidance provided throughout the session.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Finished pieces will be fired and available for collection
+                later.
+              </li>
+            </ul>
+          </div>
+          <div
+            className="rounded-xl p-4 flex flex-col gap-2"
+            style={{ background: "oklch(var(--clay) / 0.07)" }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-1">
+              Refund Policy
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Cancellation 2 days before the session: 75% refund.
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Cancellation within 2 days of the session: No refund.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "beginner-course",
+      title: "Structured Wheel Throwing & Handbuilding – Beginner Course",
+      badge: "Course",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Course Details
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Available as Weekend or Weekday course
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Total Sessions: 10 guided sessions + 4 practice sessions
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Duration: 3 hours per session
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Course Includes
+            </p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "10 instructor-led sessions",
+                "4 flexible practice sessions without instructor guidance",
+                "2 glazing sessions with instructor guidance",
+                "2 bags of clay",
+                "Space tools and apron for use inside the space",
+                "Bisque firing for up to 4 finished pottery pieces",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+              ₹15,000
+            </span>
+          </div>
+          <div
+            className="rounded-xl p-4 flex flex-col gap-2"
+            style={{ background: "oklch(var(--clay) / 0.07)" }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-1">
+              Refund Policy
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Cancellation 7 days before course start: 75% refund.
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              No refund once the course has started. Participants may join the
+              next available batch.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "intermediate-course",
+      title: "Structured Wheel Throwing & Handbuilding – Intermediate Course",
+      badge: "Course",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Course Details
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Available as Weekend or Weekday course
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Total Sessions: 12 guided sessions + 4 practice sessions
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Duration: 3 hours per session
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Course Includes
+            </p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "12 instructor-led sessions",
+                "4 flexible practice sessions without instructor guidance",
+                "2 glazing sessions with instructor guidance",
+                "2 bags of clay",
+                "Space tools and apron for use inside the space",
+                "Bisque firing for up to 4 finished pottery pieces",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+              ₹20,000
+            </span>
+          </div>
+          <div
+            className="rounded-xl p-4 flex flex-col gap-2"
+            style={{ background: "oklch(var(--clay) / 0.07)" }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-1">
+              Refund Policy
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Cancellation 7 days before course start: 75% refund.
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              No refund once the course has started. Participants may join the
+              next available batch.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "handbuilding-session",
+      title: "Handbuilding Session Policy",
+      badge: "Session",
+      content: (
+        <div className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Duration: 3 hours
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Fee: ₹260 per session
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      id: "glaze-application",
+      title: "Glaze Application Policy",
+      badge: "Session",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Session Details
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                1 session: ₹280
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                2 sessions per day: ₹560
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Guidelines
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Participants must bring their own bisque-fired pottery pieces.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Space glazes will not be provided.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Participants must bring their own glazing tools.
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "kiln-masterclass",
+      title: "Kiln Master Class Policy",
+      badge: "Masterclass",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Course Covers
+            </p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "Understanding what happens inside the kiln during firing",
+                "Identifying and avoiding clay body and glaze defects such as warping, cracks, pinholing, and blistering",
+                "Understanding kiln firing programs including bisque firing, glaze firing, and through firing",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+              ₹9,300
+            </span>
+          </div>
+          <div
+            className="rounded-xl p-4"
+            style={{ background: "oklch(var(--clay) / 0.07)" }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+              Refund Policy
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              No refunds are available. Participants may join a future batch if
+              they miss the course.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "glaze-formulation",
+      title: "Glaze Formulation Course Policy",
+      badge: "Advanced",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Topics Covered
+            </p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "Understanding raw materials",
+                "Glaze chemistry basics",
+                "Introduction and usage of Glazy",
+                "Experimentation with glossy, matte, and satin matte glazes",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+              ₹18,000
+            </span>
+          </div>
+          <div
+            className="rounded-xl p-4"
+            style={{ background: "oklch(var(--clay) / 0.07)" }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+              Refund Policy
+            </p>
+            <p className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              No refunds are available. Participants may join a future batch if
+              needed.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "kiln-firing-service",
+      title: "Kiln Firing Service Policy",
+      badge: "Service",
+      content: (
+        <div className="flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Services Available
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Bisque firing
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Glaze firing
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+              Guidelines
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Pottery pieces must be dropped off between 10:30 AM and 5:30 PM.
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                Pieces must be completely dry before firing.
+              </li>
+              <li className="flex items-start gap-2">
+                <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                The space is not responsible for damages caused by air bubbles,
+                glaze faults, or improper clay preparation.
+              </li>
+              <li className="flex items-start gap-2">
+                <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                If a piece causes damage to the kiln during firing, additional
+                charges may apply depending on the extent of the damage.
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "storage-collection",
+      title: "Storage & Collection Policy",
+      badge: "Storage",
+      content: (
+        <div className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Finished pottery pieces must be collected within the time period
+              informed by the space.
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Due to limited storage space, uncollected pieces may be discarded
+              after the storage period.
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      id: "breakage-damage",
+      title: "Breakage & Ceramic Damage Policy",
+      badge: "Liability",
+      content: (
+        <div className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              Ceramic pieces are fragile and may crack or break during drying,
+              glazing, or firing.
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              While the space takes great care during the process, Claze
+              Creative Space cannot guarantee that every piece will survive
+              firing.
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+              The space is not responsible for damage caused by clay body
+              issues, trapped air, glaze reactions, or firing behavior.
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section data-ocid="policies.section" className="py-20 px-4 bg-muted/30">
+      <div className="max-w-4xl mx-auto">
+        <PageHeader
+          eyebrow="Policies"
+          title="Class & Service Policies"
+          subtitle="Please read our policies carefully before booking any session, course, or service at Claze Creative Space."
+        />
+
+        <div className="flex flex-col gap-4">
+          {policies.map((section, i) => (
+            <PolicyAccordionItem key={section.id} section={section} index={i} />
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-sm text-foreground/55 mb-4">
+            Questions about any of our policies?
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-opacity shadow-clay"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────
 // Router setup (hash-based for ICP)
 // ─────────────────────────────────────────────
 
@@ -1224,11 +2213,18 @@ const contactRoute = createRoute({
   component: ContactPage,
 });
 
+const policiesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/policies",
+  component: PoliciesPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   servicesRoute,
   programsRoute,
   aboutRoute,
+  policiesRoute,
   contactRoute,
 ]);
 

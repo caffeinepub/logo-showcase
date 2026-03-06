@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,7 +103,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: "Fraunces", "Instrument Serif", Georgia, serif;
+    font-family: "Cormorant Garamond", "Fraunces", Georgia, serif;
   }
 }
 
@@ -164,7 +166,7 @@
   .price-badge {
     background: oklch(var(--clay));
     color: oklch(var(--beige-warm));
-    font-family: "Fraunces", serif;
+    font-family: "Cormorant Garamond", "Fraunces", serif;
   }
 
   .ornament {
