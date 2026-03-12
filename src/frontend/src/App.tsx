@@ -150,7 +150,7 @@ function Navigation() {
           aria-label="Go to homepage"
         >
           <img
-            src="/assets/generated/claze-logo-transparent.png"
+            src="/assets/uploads/looogo-2-1.jpeg"
             alt="Claze Creative Space Logo"
             className="h-10 w-10 object-contain"
           />
@@ -255,7 +255,7 @@ function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/assets/generated/claze-logo-transparent.png"
+              src="/assets/uploads/looogo-2-1.jpeg"
               alt="Claze Logo"
               className="h-10 w-10 object-contain"
             />
@@ -400,7 +400,7 @@ function HomePage() {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/assets/generated/claze-logo-transparent.png"
+              src="/assets/uploads/looogo-2-1.jpeg"
               alt="Claze Creative Space"
               className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto"
             />
