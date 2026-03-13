@@ -150,7 +150,7 @@ function Navigation() {
           aria-label="Go to homepage"
         >
           <img
-            src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
+            src="/assets/generated/logo-transparent-v4.dim_400x400.png"
             alt="Claze Creative Space Logo"
             className="h-10 w-10 object-contain"
           />
@@ -255,7 +255,7 @@ function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
+              src="/assets/generated/logo-transparent-v4.dim_400x400.png"
               alt="Claze Logo"
               className="h-10 w-10 object-contain"
             />
@@ -400,7 +400,7 @@ function HomePage() {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
+              src="/assets/generated/logo-transparent-v4.dim_400x400.png"
               alt="Claze Creative Space"
               className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto"
             />
@@ -937,255 +937,6 @@ function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Glaze Formulation Course */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
-          >
-            <div>
-              <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
-                Course
-              </p>
-              <h2 className="font-display text-2xl text-foreground">
-                Glaze Formulation Course
-              </h2>
-            </div>
-            <p className="text-sm text-foreground/65 leading-relaxed">
-              Understanding glazes changes the way you see ceramics. Instead of
-              relying on ready-made recipes, this course helps you understand
-              why glazes behave the way they do. Over six sessions, we explore
-              the fundamentals of glaze chemistry and move step by step into
-              creating your own glazes with confidence. You will learn how
-              different materials interact, how firing affects surfaces, and how
-              small adjustments can completely transform the result. The course
-              combines theory with hands-on practice. Participants will mix
-              glazes, fire test tiles, analyse results, and refine their
-              understanding through guided experiments.
-            </p>
-            <div className="section-divider" />
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
-                What You Will Learn
-              </p>
-              <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                {[
-                  "Introduction to glazes and their components",
-                  "Understanding glaze materials and how they function",
-                  "Mixing and making glazes from raw materials",
-                  "Evaluating glaze test tiles after firing",
-                  "Using Glazy as a tool for glaze exploration and testing",
-                  "Creating glossy, matte and satin matte glazes",
-                  "Working with fluxes, opacifiers and colourants",
-                  "Understanding common glaze defects and how to prevent them",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="text-sm text-foreground/65 italic leading-relaxed">
-              By the end of the course, you will not just follow glaze recipes —
-              you will understand how to develop and adjust them to suit your
-              own work.
-            </p>
-          </motion.div>
-
-          {/* Technical Firing Mastery */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
-          >
-            <div>
-              <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
-                Course
-              </p>
-              <h2 className="font-display text-2xl text-foreground">
-                Technical Firing Mastery
-              </h2>
-              <p className="text-sm text-foreground/55 mt-1">
-                From Clay Body to Fire – Ceramic &amp; Kiln Firing Course
-              </p>
-            </div>
-            <p className="text-sm text-foreground/65 leading-relaxed">
-              Many potters learn firing through trial and error. This course is
-              designed to change that. "From Clay Body to Fire" focuses on
-              understanding what actually happens inside clay during firing and
-              how to control the kiln with confidence. Instead of copying firing
-              schedules, you will learn the logic behind them. Through a series
-              of progressive sessions, we move from clay behaviour to practical
-              kiln programming and firing strategies.
-            </p>
-            <div className="section-divider" />
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
-                Course Topics
-              </p>
-              <div className="flex flex-col gap-4 text-sm text-foreground/65">
-                {[
-                  {
-                    topic: "Clay Body Behaviour",
-                    points: [
-                      "How clay transforms from a shaped form into a fired pot",
-                      "The hidden changes that occur inside clay during firing",
-                    ],
-                  },
-                  {
-                    topic: "Clay Body Defects",
-                    points: [
-                      "Understanding issues such as cracks, warping and bloating",
-                      "Learning how to prevent these problems before they happen",
-                    ],
-                  },
-                  {
-                    topic: "Kiln Firing Logic",
-                    points: [
-                      "Understanding firing programs instead of simply copying schedules",
-                      "Bisque firing and glaze firing explained through firing curves",
-                      "Using ramp, hold and drop-hold techniques to prevent blisters and pinholes",
-                    ],
-                  },
-                  {
-                    topic: "Kiln Programming & Loading",
-                    points: [
-                      "Hands-on kiln programming practice",
-                      "Adjusting firing schedules for different clay bodies and thicknesses",
-                      "Best practices for loading a kiln to avoid misfires and defects",
-                    ],
-                  },
-                ].map((section) => (
-                  <div key={section.topic}>
-                    <p className="font-semibold text-foreground/80 mb-1">
-                      {section.topic}
-                    </p>
-                    <ul className="flex flex-col gap-1 pl-2">
-                      {section.points.map((pt) => (
-                        <li key={pt} className="flex items-start gap-2">
-                          <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                          {pt}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
-                What You Will Gain
-              </p>
-              <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                {[
-                  "Insight into what most potters are never formally taught",
-                  "The ability to diagnose why pots crack, warp or fail",
-                  "Confidence to adjust firing schedules for your own work",
-                  "Independence from guesswork or borrowed firing programs",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="text-sm text-foreground/65 italic leading-relaxed">
-              Most potters fire by habit. This course will help you fire with
-              understanding.
-            </p>
-          </motion.div>
-
-          {/* Clay Body Formulation */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-warm flex flex-col gap-5"
-          >
-            <div>
-              <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
-                Course
-              </p>
-              <h2 className="font-display text-2xl text-foreground">
-                Clay Body Formulation
-              </h2>
-            </div>
-            <p className="text-sm text-foreground/65 leading-relaxed">
-              Clay is the foundation of every ceramic piece, yet many potters
-              work with ready-made clay bodies without fully understanding what
-              makes them behave the way they do. This course is designed to help
-              you understand clay from the inside out. Instead of relying only
-              on commercial clay bodies, you will learn how to analyse, adjust
-              and even create your own clay bodies to suit your work. Through
-              practical sessions and testing, we explore how different raw
-              materials affect plasticity, strength, drying behaviour and firing
-              performance. The focus is not just on theory, but on learning how
-              to make informed decisions while working with clay.
-            </p>
-            <div className="section-divider" />
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
-                What You Will Learn
-              </p>
-              <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                {[
-                  "Understanding the basic components of a clay body",
-                  "How different clays, fillers and fluxes affect performance",
-                  "Plasticity, workability and drying behaviour",
-                  "Shrinkage and how to control it",
-                  "Strength of clay bodies at different stages",
-                  "Common clay body defects and how to prevent them",
-                  "Testing methods for clay bodies",
-                  "Adjusting clay bodies for different forming techniques",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
-                Hands-on Learning
-              </p>
-              <p className="text-sm text-foreground/65 leading-relaxed">
-                Participants will work directly with clay materials, mix small
-                test batches and observe how they behave during drying and
-                firing. By studying test results, you will develop a deeper
-                understanding of how clay bodies can be improved or customised.
-              </p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
-                By the End of the Course
-              </p>
-              <p className="text-sm text-foreground/65 leading-relaxed mb-2">
-                You will gain the knowledge to:
-              </p>
-              <ul className="flex flex-col gap-2 text-sm text-foreground/65">
-                {[
-                  "Understand why a clay body behaves the way it does",
-                  "Adjust existing clay bodies to suit your making process",
-                  "Begin developing clay bodies tailored to your own work",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="text-sm text-foreground/65 italic leading-relaxed">
-              This course helps potters move from simply using clay to truly
-              understanding it.
-            </p>
-          </motion.div>
-
           {/* Consultation */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -1608,7 +1359,7 @@ function ProgramsPage() {
             </div>
           </motion.div>
 
-          {/* Structured Wheel Throwing & Handbuilding */}
+          {/* Wheel Throwing */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1620,7 +1371,7 @@ function ProgramsPage() {
                 Structured Course
               </p>
               <h2 className="font-display text-2xl sm:text-3xl text-foreground">
-                Wheel Throwing &amp; Handbuilding
+                Wheel Throwing
               </h2>
             </div>
             <div className="section-divider mb-6" />
@@ -1641,17 +1392,37 @@ function ProgramsPage() {
                     </h3>
                   </div>
                   <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
-                    ₹15,000
+                    ₹14,500
                   </span>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                    Course Objectives
+                  </p>
+                  <ul className="flex flex-col gap-1 text-sm text-foreground/70 mb-3">
+                    {[
+                      "Learn to prepare and centre clay on the wheel",
+                      "Pull walls and open the base of a cylinder",
+                      "Create basic forms: cups, bowls and small pots",
+                      "Learn to trim and refine your pieces",
+                      "Introduction to basic glazing techniques",
+                      "Understand the firing process from greenware to finished piece",
+                    ].map((obj) => (
+                      <li key={obj} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                        {obj}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <ul className="flex flex-col gap-2 text-sm text-foreground/70">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    14 sessions · 3 hrs each · Mon – Sun
+                    14 sessions · 3 hrs each
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
-                    10 + 4 flexible practice sessions
+                    10 sessions with instructor + 4 flexible practice sessions
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
@@ -1687,8 +1458,28 @@ function ProgramsPage() {
                     </h3>
                   </div>
                   <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
-                    ₹20,000
+                    ₹17,500
                   </span>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                    Course Objectives
+                  </p>
+                  <ul className="flex flex-col gap-1 text-sm text-foreground/70 mb-3">
+                    {[
+                      "Refine centring and develop consistency across forms",
+                      "Emphasis on creating larger open forms, taller cylinders and bowls",
+                      "Includes techniques for throwing and trimming using a chunk",
+                      "Explore surface decoration and texture on the wheel",
+                      "Introduction to basic glazing techniques",
+                      "Understand the firing process from greenware to finished piece",
+                    ].map((obj) => (
+                      <li key={obj} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                        {obj}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <ul className="flex flex-col gap-2 text-sm text-foreground/70">
                   <li className="flex items-start gap-2">
@@ -1698,6 +1489,158 @@ function ProgramsPage() {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
                     12 sessions with instructor + 4 flexible practice sessions
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2 clay bags will be provided
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Tools &amp; apron available in the space
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2 glazing sessions with expert instructors
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    4 products to take home (Glaze fired)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Handbuilding */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="bg-card rounded-2xl border border-border shadow-warm p-8"
+          >
+            <div className="mb-5">
+              <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                Structured Course
+              </p>
+              <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+                Handbuilding
+              </h2>
+            </div>
+            <div className="section-divider mb-6" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Beginner */}
+              <div
+                className="rounded-xl p-6 flex flex-col gap-4"
+                style={{ background: "oklch(var(--beige-mid) / 0.5)" }}
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-foreground/50 font-semibold mb-1">
+                      Level
+                    </p>
+                    <h3 className="font-display text-xl text-foreground">
+                      Beginner
+                    </h3>
+                  </div>
+                  <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+                    ₹13,000
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                    Course Objectives
+                  </p>
+                  <ul className="flex flex-col gap-1 text-sm text-foreground/70 mb-3">
+                    {[
+                      "Explore pinch pot techniques as an introduction to clay",
+                      "Build forms using coil construction",
+                      "Work with slabs to create functional and decorative pieces",
+                      "Experiment with surface texture and simple decorative techniques",
+                      "Introduction to basic glazing and surface finishing",
+                      "Understand the stages from making to fired ceramic",
+                    ].map((obj) => (
+                      <li key={obj} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                        {obj}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/70">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    12 sessions · 3 hrs each
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    8 sessions with instructor + 4 flexible sessions
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2 clay bags will be provided
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    Tools &amp; apron available in the space
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    2 glazing sessions with expert instructors
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    4 products to take home (Glaze fired)
+                  </li>
+                </ul>
+              </div>
+
+              {/* Intermediate */}
+              <div
+                className="rounded-xl p-6 flex flex-col gap-4"
+                style={{ background: "oklch(var(--beige-mid) / 0.5)" }}
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-foreground/50 font-semibold mb-1">
+                      Level
+                    </p>
+                    <h3 className="font-display text-xl text-foreground">
+                      Intermediate
+                    </h3>
+                  </div>
+                  <span className="price-badge text-base font-bold px-4 py-1.5 rounded-full">
+                    ₹14,500
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                    Course Objectives
+                  </p>
+                  <ul className="flex flex-col gap-1 text-sm text-foreground/70 mb-3">
+                    {[
+                      "Develop advanced slab work for complex functional forms",
+                      "Build sculptural and three-dimensional ceramic forms",
+                      "Explore surface decoration, carving and texture in depth",
+                      "Introduction to basic glazing and surface finishing",
+                      "Develop a personal body of work or project series",
+                      "Build confidence and independence in ceramic practice",
+                    ].map((obj) => (
+                      <li key={obj} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                        {obj}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/70">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    12 sessions · 3 hrs each
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                    8 sessions with instructor + 4 flexible sessions
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
@@ -1895,6 +1838,94 @@ function ProgramsPage() {
                 By the end of the course, you will not just follow glaze recipes
                 — you will understand how to develop and adjust them to suit
                 your own work.
+              </p>
+            </motion.div>
+            {/* Clay Body Formulation */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="card-hover bg-card rounded-2xl border border-border shadow-warm p-7 flex flex-col gap-5"
+            >
+              <div>
+                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                  Course
+                </p>
+                <h2 className="font-display text-2xl text-foreground">
+                  Clay Body Formulation
+                </h2>
+              </div>
+              <p className="text-sm text-foreground/65 leading-relaxed">
+                Clay is the foundation of every ceramic piece, yet many potters
+                work with ready-made clay bodies without fully understanding
+                what makes them behave the way they do. This course is designed
+                to help you understand clay from the inside out. Instead of
+                relying only on commercial clay bodies, you will learn how to
+                analyse, adjust and even create your own clay bodies to suit
+                your work. Through practical sessions and testing, we explore
+                how different raw materials affect plasticity, strength, drying
+                behaviour and firing performance. The focus is not just on
+                theory, but on learning how to make informed decisions while
+                working with clay.
+              </p>
+              <div className="section-divider" />
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+                  What You Will Learn
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  {[
+                    "Understanding the basic components of a clay body",
+                    "How different clays, fillers and fluxes affect performance",
+                    "Plasticity, workability and drying behaviour",
+                    "Shrinkage and how to control it",
+                    "Strength of clay bodies at different stages",
+                    "Common clay body defects and how to prevent them",
+                    "Testing methods for clay bodies",
+                    "Adjusting clay bodies for different forming techniques",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                  Hands-on Learning
+                </p>
+                <p className="text-sm text-foreground/65 leading-relaxed">
+                  Participants will work directly with clay materials, mix small
+                  test batches and observe how they behave during drying and
+                  firing. By studying test results, you will develop a deeper
+                  understanding of how clay bodies can be improved or
+                  customised.
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-2">
+                  By the End of the Course
+                </p>
+                <p className="text-sm text-foreground/65 leading-relaxed mb-2">
+                  You will gain the knowledge to:
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  {[
+                    "Understand why a clay body behaves the way it does",
+                    "Adjust existing clay bodies to suit your making process",
+                    "Begin developing clay bodies tailored to your own work",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-sm text-foreground/65 italic leading-relaxed">
+                This course helps potters move from simply using clay to truly
+                understanding it.
               </p>
             </motion.div>
           </div>
@@ -2392,7 +2423,7 @@ function PoliciesPage() {
     },
     {
       id: "beginner-course",
-      title: "Structured Wheel Throwing & Handbuilding – Beginner Course",
+      title: "Structured Wheel Throwing – Beginner Course",
       badge: "Course",
       content: (
         <div className="flex flex-col gap-5">
@@ -2462,7 +2493,7 @@ function PoliciesPage() {
     },
     {
       id: "intermediate-course",
-      title: "Structured Wheel Throwing & Handbuilding – Intermediate Course",
+      title: "Structured Wheel Throwing – Intermediate Course",
       badge: "Course",
       content: (
         <div className="flex flex-col gap-5">
