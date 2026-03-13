@@ -150,7 +150,7 @@ function Navigation() {
           aria-label="Go to homepage"
         >
           <img
-            src="/assets/uploads/looogo-2-1.jpeg"
+            src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
             alt="Claze Creative Space Logo"
             className="h-10 w-10 object-contain"
           />
@@ -255,7 +255,7 @@ function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/assets/uploads/looogo-2-1.jpeg"
+              src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
               alt="Claze Logo"
               className="h-10 w-10 object-contain"
             />
@@ -382,13 +382,13 @@ function HomePage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/generated/pottery-hero.dim_1400x700.jpg"
+            src="/assets/generated/hero-pottery.dim_1400x800.jpg"
             alt="Pottery workspace background"
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-background/75" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/90" />
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/75" />
         </div>
 
         {/* Content */}
@@ -400,7 +400,7 @@ function HomePage() {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/assets/uploads/looogo-2-1.jpeg"
+              src="/assets/generated/logo-clean-final-transparent.dim_400x400.png"
               alt="Claze Creative Space"
               className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto"
             />
@@ -412,14 +412,14 @@ function HomePage() {
             transition={{ duration: 0.8, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center gap-3"
           >
-            <p className="text-sm font-semibold tracking-[0.25em] uppercase clay-text">
+            <p className="text-sm font-bold tracking-[0.25em] uppercase text-white drop-shadow-md">
               Bengaluru's Collective Pottery Space
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
               Claze Creative Space
             </h1>
             <ClayOrnament className="my-1" />
-            <p className="text-base sm:text-lg text-foreground/70 max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-white/90 max-w-xl leading-relaxed font-medium drop-shadow">
               A warm, welcoming space in HSR Layout where beginners and seasoned
               potters come together to shape, fire, and create.
             </p>
@@ -440,7 +440,7 @@ function HomePage() {
             </Link>
             <Link
               to="/programs"
-              className="px-8 py-3.5 border border-primary/50 text-primary font-semibold rounded-full hover:bg-muted/60 transition-colors duration-200"
+              className="px-8 py-3.5 border-2 border-white text-white font-semibold rounded-full hover:bg-white/20 transition-colors duration-200"
             >
               View Programs
             </Link>
