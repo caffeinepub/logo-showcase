@@ -1721,83 +1721,181 @@ function ProgramsPage() {
           </motion.div>
 
           {/* Kiln & Glaze Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Kiln Classes */}
+          <div className="flex flex-col gap-6">
+            {/* Technical Firing Mastery */}
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="card-hover bg-card rounded-2xl border border-border shadow-warm p-7 flex flex-col gap-4"
+              className="card-hover bg-card rounded-2xl border border-border shadow-warm p-7 flex flex-col gap-5"
             >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{ background: "oklch(var(--clay) / 0.10)" }}
-              >
-                <Flame className="h-6 w-6 clay-text" />
-              </div>
-              <div>
-                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
-                  Specialization
-                </p>
-                <h2 className="font-display text-xl text-foreground">
-                  Kiln Classes
-                </h2>
-              </div>
-              <div className="section-divider" />
-              <ul className="flex flex-col gap-2 text-sm text-foreground/70">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                  Basic to Intermediate level
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                  Learn kiln operation &amp; firing
-                </li>
-              </ul>
-              <div className="mt-auto">
-                <span className="price-badge text-lg font-bold px-5 py-2 rounded-full">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div>
+                  <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                    Specialization
+                  </p>
+                  <h2 className="font-display text-2xl text-foreground">
+                    Technical Firing Mastery
+                  </h2>
+                  <p className="text-sm clay-text mt-1 italic">
+                    From Clay Body to Fire – Ceramic &amp; Kiln Firing Course
+                  </p>
+                </div>
+                <span className="price-badge text-lg font-bold px-5 py-2 rounded-full self-start whitespace-nowrap">
                   ₹9,300
                 </span>
               </div>
+              <p className="text-sm text-foreground/65 leading-relaxed">
+                Many potters learn firing through trial and error. This course
+                is designed to change that. "From Clay Body to Fire" focuses on
+                understanding what actually happens inside clay during firing
+                and how to control the kiln with confidence. Instead of copying
+                firing schedules, you will learn the logic behind them. Through
+                a series of progressive sessions, we move from clay behaviour to
+                practical kiln programming and firing strategies.
+              </p>
+              <div className="section-divider" />
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+                  Course Topics
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {[
+                    {
+                      topic: "Clay Body Behaviour",
+                      points: [
+                        "How clay transforms from a shaped form into a fired pot",
+                        "The hidden changes that occur inside clay during firing",
+                      ],
+                    },
+                    {
+                      topic: "Clay Body Defects",
+                      points: [
+                        "Understanding issues such as cracks, warping and bloating",
+                        "Learning how to prevent these problems before they happen",
+                      ],
+                    },
+                    {
+                      topic: "Kiln Firing Logic",
+                      points: [
+                        "Understanding firing programs instead of simply copying schedules",
+                        "Bisque firing and glaze firing explained through firing curves",
+                        "Using ramp, hold and drop-hold techniques to prevent blisters and pinholes",
+                      ],
+                    },
+                    {
+                      topic: "Kiln Programming & Loading",
+                      points: [
+                        "Hands-on kiln programming practice",
+                        "Adjusting firing schedules for different clay bodies and thicknesses",
+                        "Best practices for loading a kiln to avoid misfires and defects",
+                      ],
+                    },
+                  ].map((section) => (
+                    <div key={section.topic} className="flex flex-col gap-2">
+                      <p className="text-sm font-semibold text-foreground">
+                        {section.topic}
+                      </p>
+                      <ul className="flex flex-col gap-1">
+                        {section.points.map((pt) => (
+                          <li
+                            key={pt}
+                            className="flex items-start gap-2 text-sm text-foreground/65"
+                          >
+                            <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                            {pt}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="section-divider" />
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+                  What You Will Gain
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  {[
+                    "Insight into what most potters are never formally taught",
+                    "The ability to diagnose why pots crack, warp or fail",
+                    "Confidence to adjust firing schedules for your own work",
+                    "Independence from guesswork or borrowed firing programs",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-sm text-foreground/65 italic leading-relaxed">
+                Most potters fire by habit. This course will help you fire with
+                understanding.
+              </p>
             </motion.div>
 
-            {/* Glaze Formulation */}
+            {/* Glaze Formulation Course */}
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="card-hover bg-card rounded-2xl border border-border shadow-warm p-7 flex flex-col gap-4"
+              className="card-hover bg-card rounded-2xl border border-border shadow-warm p-7 flex flex-col gap-5"
             >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{ background: "oklch(var(--clay) / 0.10)" }}
-              >
-                <Sparkles className="h-6 w-6 clay-text" />
-              </div>
-              <div>
-                <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
-                  Advanced
-                </p>
-                <h2 className="font-display text-xl text-foreground">
-                  Glaze Formulation
-                </h2>
-              </div>
-              <div className="section-divider" />
-              <ul className="flex flex-col gap-2 text-sm text-foreground/70">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                  Formulate &amp; make your own glazes
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0" />
-                  Work with experienced professionals
-                </li>
-              </ul>
-              <div className="mt-auto">
-                <span className="price-badge text-lg font-bold px-5 py-2 rounded-full">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div>
+                  <p className="text-xs tracking-widest uppercase clay-text font-semibold mb-1">
+                    Advanced
+                  </p>
+                  <h2 className="font-display text-2xl text-foreground">
+                    Glaze Formulation Course
+                  </h2>
+                </div>
+                <span className="price-badge text-lg font-bold px-5 py-2 rounded-full self-start whitespace-nowrap">
                   ₹18,000
                 </span>
               </div>
+              <p className="text-sm text-foreground/65 leading-relaxed">
+                Understanding glazes changes the way you see ceramics. Instead
+                of relying on ready-made recipes, this course helps you
+                understand why glazes behave the way they do. Over six sessions,
+                we explore the fundamentals of glaze chemistry and move step by
+                step into creating your own glazes with confidence. You will
+                learn how different materials interact, how firing affects
+                surfaces, and how small adjustments can completely transform the
+                result. The course combines theory with hands-on practice.
+                Participants will mix glazes, fire test tiles, analyse results,
+                and refine their understanding through guided experiments.
+              </p>
+              <div className="section-divider" />
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase clay-text mb-3">
+                  What You Will Learn
+                </p>
+                <ul className="flex flex-col gap-2 text-sm text-foreground/65">
+                  {[
+                    "Introduction to glazes and their components",
+                    "Understanding glaze materials and how they function",
+                    "Mixing and making glazes from raw materials",
+                    "Evaluating glaze test tiles after firing",
+                    "Using Glazy as a tool for glaze exploration and testing",
+                    "Creating glossy, matte and satin matte glazes",
+                    "Working with fluxes, opacifiers and colourants",
+                    "Understanding common glaze defects and how to prevent them",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 clay-text flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-sm text-foreground/65 italic leading-relaxed">
+                By the end of the course, you will not just follow glaze recipes
+                — you will understand how to develop and adjust them to suit
+                your own work.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -1860,7 +1958,7 @@ function AboutPage() {
                 About Us
               </p>
               <h1 className="font-display text-3xl sm:text-4xl text-foreground leading-snug">
-                Claze Creative
+                Claze Creative Space
               </h1>
               <ClayOrnament className="mt-4" />
             </div>
