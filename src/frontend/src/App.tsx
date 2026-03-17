@@ -150,9 +150,9 @@ function Navigation() {
           aria-label="Go to homepage"
         >
           <img
-            src="/assets/generated/logo-transparent-v4.dim_400x400.png"
+            src="/assets/generated/claze-logo-final-transparent.png"
             alt="Claze Creative Space Logo"
-            className="h-10 w-10 object-contain"
+            className="h-10 w-10 object-contain mix-blend-multiply"
           />
           <span className="font-display text-base sm:text-lg font-semibold text-foreground tracking-wide hidden sm:block">
             Claze Creative Space
@@ -255,9 +255,9 @@ function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/assets/generated/logo-transparent-v4.dim_400x400.png"
+              src="/assets/generated/claze-logo-final-transparent.png"
               alt="Claze Logo"
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain mix-blend-multiply"
             />
             <div>
               <p className="font-display text-base font-semibold text-foreground">
@@ -400,9 +400,9 @@ function HomePage() {
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
-              src="/assets/generated/logo-transparent-v4.dim_400x400.png"
+              src="/assets/generated/claze-logo-final-transparent.png"
               alt="Claze Creative Space"
-              className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto"
+              className="h-28 w-28 sm:h-36 sm:w-36 object-contain mx-auto mix-blend-multiply"
             />
           </motion.div>
 
@@ -2207,7 +2207,7 @@ function ContactPage() {
           >
             <iframe
               title="Claze Creative Space Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9366636499!2d77.6407!3d12.9116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s221%2C%209th%20Main%20Road%2C%2015th%20Cross%20Rd%2C%20Sector%206%2C%20HSR%20Layout%2C%20Bengaluru%2C%20Karnataka%20560102!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0!2d77.64116!3d12.91860!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1490f1ff0001%3A0x1!2s221%2C+9th+Main+Rd%2C+15th+Cross+Rd%2C+Sector+6%2C+HSR+Layout%2C+Bengaluru%2C+Karnataka+560102!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "360px" }}
